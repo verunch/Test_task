@@ -1,3 +1,5 @@
+import chevronDownGray from '../assets/icons/chevron-down-gray.svg'
+
 const MONTHS = [
   'Январь',
   'Февраль',
@@ -60,11 +62,11 @@ function renderCalendar(panel, viewDate, selectedDate, minDate, onSelect) {
   panel.innerHTML = `
     <div class="search-form__calendar-header">
       <button type="button" class="search-form__calendar-nav search-form__calendar-nav--prev" aria-label="Предыдущий месяц">
-        <img src="/src/assets/icons/chevron-down-gray.svg" alt="" />
+        <img src="${chevronDownGray}" alt="" />
       </button>
       <span class="search-form__calendar-title">${MONTHS[month]} ${year}</span>
       <button type="button" class="search-form__calendar-nav search-form__calendar-nav--next" aria-label="Следующий месяц">
-        <img src="/src/assets/icons/chevron-down-gray.svg" alt="" />
+        <img src="${chevronDownGray}" alt="" />
       </button>
     </div>
     <div class="search-form__calendar-weekdays">${WEEKDAYS.map((day) => `<span>${day}</span>`).join('')}</div>
