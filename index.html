@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <title>ATT</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <a href="/" class="header__logo">
+        <img src="/src/assets/images/logo.png" alt="ATT" />
+      </a>
+
+      <div class="header__right">
+        <nav class="header__nav" data-header-nav>
+          <a href="#" class="header__link">ПРОГРАММА</a>
+          <a href="#tours" class="header__link">РАСПИСАНИЕ</a>
+          <a href="#reviews" class="header__link">ОТЗЫВЫ</a>
+          <button type="button" class="header__dropdown">
+            КОНТАКТЫ
+            <img src="/src/assets/icons/chevron-down-white.svg" class="header__chevron" alt="" />
+          </button>
+        </nav>
+
+        <div class="header__controls">
+          <button type="button" class="header__dropdown header__dropdown--accent">
+            BYN
+            <img src="/src/assets/icons/chevron-down-amber.svg" class="header__chevron" alt="" />
+          </button>
+          <button type="button" class="header__dropdown header__dropdown--accent">
+            РУС
+            <img src="/src/assets/icons/chevron-down-amber.svg" class="header__chevron" alt="" />
+          </button>
+          <button type="button" class="header__book">БРОНИРОВАТЬ</button>
+          <button type="button" class="header__burger" data-header-burger aria-label="Открыть меню"
+            aria-expanded="false">
+            <img src="/src/assets/icons/menu.svg" alt="" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <img src="/src/assets/images/hero-img.png" class="hero__bg" alt="Брестская крепость" />
+      <div class="hero__overlay"></div>
+      <div class="hero__content">
+        <h1 class="hero__title">Экскурсия Тысячелетний Брест и Брестская крепость</h1>
+        <p class="hero__subtitle">Погрузитесь в историю наследия заповедной памяти</p>
+        <a href="#tours" class="hero__button">РАСПИСАНИЕ</a>
+        <div class="hero__scroll">
+          <img src="/src/assets/icons/chevron-double-down.svg" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <section class="tours" id="tours">
+      <h2 class="tours__title">
+        Расписание экскурсии<br />
+        Тысячелетний Брест и Бресткая крепость
+      </h2>
+
+      <form class="search-form" novalidate>
+        <div class="search-form__group">
+          <div class="search-form__field">
+            <label for="date-from">Дата с</label>
+            <div class="search-form__input" data-datepicker>
+              <input type="text" id="date-from" name="date-from" placeholder="Дд.Мм.Гггг" autocomplete="off"
+                data-datepicker-input />
+              <button type="button" class="search-form__calendar-toggle" data-datepicker-toggle
+                aria-label="Открыть календарь">
+                <img src="/src/assets/icons/calendar.svg" alt="" />
+              </button>
+              <div class="search-form__calendar" data-datepicker-panel hidden></div>
+            </div>
+          </div>
+
+          <div class="search-form__field">
+            <label for="date-to">Дата по</label>
+            <div class="search-form__input" data-datepicker>
+              <input type="text" id="date-to" name="date-to" placeholder="Дд.Мм.Гггг" autocomplete="off"
+                data-datepicker-input />
+              <button type="button" class="search-form__calendar-toggle" data-datepicker-toggle
+                aria-label="Открыть календарь">
+                <img src="/src/assets/icons/calendar.svg" alt="" />
+              </button>
+              <div class="search-form__calendar" data-datepicker-panel hidden></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="search-form__group">
+          <div class="search-form__field">
+            <label for="adults">Кол-во взрослых</label>
+            <div class="search-form__number" data-number-select data-min="1" data-max="10">
+              <input type="number" id="adults" name="adults" min="1" max="10" value="1"
+                class="search-form__number-input" data-number-select-input />
+              <button type="button" class="search-form__number-toggle" data-number-select-toggle
+                aria-label="Открыть список" aria-expanded="false">
+                <img src="/src/assets/icons/chevron-down-gray.svg" class="search-form__number-icon" alt="" />
+              </button>
+              <ul class="search-form__number-list" role="listbox" aria-label="Кол-во взрослых" data-number-select-list
+                hidden></ul>
+            </div>
+          </div>
+
+          <div class="search-form__field">
+            <label for="children">Кол-во детей</label>
+            <div class="search-form__number" data-number-select data-min="0" data-max="10">
+              <input type="number" id="children" name="children" min="0" max="10" value="0"
+                class="search-form__number-input" data-number-select-input />
+              <button type="button" class="search-form__number-toggle" data-number-select-toggle
+                aria-label="Открыть список" aria-expanded="false">
+                <img src="/src/assets/icons/chevron-down-gray.svg" class="search-form__number-icon" alt="" />
+              </button>
+              <ul class="search-form__number-list" role="listbox" aria-label="Кол-во детей" data-number-select-list
+                hidden></ul>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="search-form__submit">Поиск</button>
+
+        <p class="search-form__message" data-search-message role="alert" aria-live="polite" hidden></p>
+      </form>
+
+      <div class="tour-list">
+        <article class="tour-card tour-card--inactive">
+          <div class="tour-card__row">
+            <span class="tour-card__date">18.06.2026 (чт.)</span>
+            <div class="tour-card__wrap">
+              <div class="tour-card__price">60.00 BYN /</div>
+              <div class="tour-card__price"> 55.00 BYN</div>
+            </div>
+          </div>
+          <p class="tour-card__time">Начало: 18:00 ~ 4 ч. 15 мин.</p>
+          <p class="tour-card__seats">Нет мест</p>
+        </article>
+
+        <article class="tour-card">
+          <div class="tour-card__row">
+            <span class="tour-card__date">25.06.2026 (чт.)</span>
+            <div class="tour-card__wrap">
+              <div class="tour-card__price">60.00 BYN /</div>
+              <div class="tour-card__price"> 55.00 BYN</div>
+            </div>
+          </div>
+          <p class="tour-card__time">Начало: 18:00 ~ 4 ч. 15 мин.</p>
+          <div class="tour-card__footer">
+            <p class="tour-card__seats">Осталось мест: 2</p>
+            <button type="button" class="tour-card__book">Бронировать</button>
+          </div>
+        </article>
+
+        <article class="tour-card">
+          <div class="tour-card__row">
+            <span class="tour-card__date">25.06.2026 (чт.)</span>
+            <div class="tour-card__wrap">
+              <div class="tour-card__price">60.00 BYN /</div>
+              <div class="tour-card__price"> 55.00 BYN</div>
+            </div>
+          </div>
+          <p class="tour-card__time">Начало: 18:00 ~ 4 ч. 15 мин.</p>
+          <div class="tour-card__footer">
+            <p class="tour-card__seats">Осталось мест: 2</p>
+            <button type="button" class="tour-card__book">Бронировать</button>
+          </div>
+        </article>
+
+        <article class="tour-card">
+          <div class="tour-card__row">
+            <span class="tour-card__date">25.06.2026 (чт.)</span>
+
+            <div class="tour-card__wrap">
+              <div class="tour-card__price">60.00 BYN /</div>
+              <div class="tour-card__price"> 55.00 BYN</div>
+            </div>
+          </div>
+          <p class="tour-card__time">Начало: 18:00 ~ 4 ч. 15 мин.</p>
+          <div class="tour-card__footer">
+            <p class="tour-card__seats">Осталось мест: 2</p>
+            <button type="button" class="tour-card__book">Бронировать</button>
+          </div>
+        </article>
+
+        <article class="tour-card">
+          <div class="tour-card__row">
+            <span class="tour-card__date">25.06.2026 (чт.)</span>
+            <div class="tour-card__wrap">
+              <div class="tour-card__price">60.00 BYN /</div>
+              <div class="tour-card__price"> 55.00 BYN</div>
+            </div>
+          </div>
+          <p class="tour-card__time">Начало: 18:00 ~ 4 ч. 15 мин.</p>
+          <div class="tour-card__footer">
+            <p class="tour-card__seats">Осталось мест: 2</p>
+            <button type="button" class="tour-card__book">Бронировать</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <h2 class="reviews__title">Отзывы наших клиентов</h2>
+
+      <div class="reviews__viewport" data-reviews-viewport>
+        <div class="reviews__track" data-reviews-track>
+          <div class="reviews__slide">
+            <div class="reviews__slide-padding">
+              <article class="reviews__card">
+                <img src="/src/assets/images/person.png" class="reviews__avatar" alt="">
+                <div class="reviews__body">
+                  <div class="reviews__card-header">
+                    <div class="reviews__meta">
+                      <p class="reviews__name">Марина, <span class="reviews__city">Санкт-Петербург</span></p>
+                      <span class="reviews__date">11-Июня-2026</span>
+                    </div>
+                    <div class="reviews__stars" role="img" aria-label="Оценка 4 из 5">
+                      <img src="/src/assets/icons/star-filled.svg" alt="">
+                      <img src="/src/assets/icons/star-filled.svg" alt="">
+                      <img src="/src/assets/icons/star-filled.svg" alt="">
+                      <img src="/src/assets/icons/star-filled.svg" alt="">
+                      <img src="/src/assets/icons/star-outline.svg" alt="">
+                    </div>
+
+                  </div>
+                  <div class="reviews__textwrap">
+                    <p class="reviews__text" data-reviews-text="">
+                      Поездка очень понравилась! Усадьба Огинского, которого знают все, но о нем знают меньше. Быт
+                      белорусской усадьбы атмосфере. Три очень интересных костела, православный храм. Гид Юрий
+                      рассказывал
+                      интересно, видна любовь к родному краю, что всегда вдохновляет. Три очень интересных костела,
+                      православный храм. Гид Юрий рассказывал интересно, видна любовь к родному краю, что всегда
+                      вдохновляет. Три очень интересных костела, православный храм. Гид Юрий рассказывал интересно,
+                      видна
+                      любовь к родному краю, что всегда вдохновляет. Три очень интересных костела, православный храм.
+                      Гид
+                      Юрий рассказывал интересно, видна любовь к родному краю, что всегда вдохновляет.
+                    </p>
+                  </div>
+                  <button type="button" class="reviews__toggle reviews__toggle--hidden"
+                    data-reviews-toggle="">далее...</button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="reviews__slide">
+            <div class="reviews__slide-padding">
+              <article class="reviews__card">
+                <img src="/src/assets/images/person.png" class="reviews__avatar" alt="">
+                <div class="reviews__body">
+                  <div class="reviews__card-header">
+                    <div class="reviews__meta">
+                      <p class="reviews__name">Марина, <span class="reviews__city">Санкт-Петербург</span></p>
+                      <span class="reviews__date">11-Июня-2026</span>
+                    </div>
+                    <div class="reviews__stars" role="img" aria-label="Оценка 4 из 5">
+                      <img src="/src/assets/icons/star-filled.svg" alt="">
+                      <img src="/src/assets/icons/star-filled.svg" alt="">
+                      <img src="/src/assets/icons/star-filled.svg" alt="">
+                      <img src="/src/assets/icons/star-filled.svg" alt="">
+                      <img src="/src/assets/icons/star-outline.svg" alt="">
+                    </div>
+
+                  </div>
+                  <div class="reviews__textwrap">
+                    <p class="reviews__text" data-reviews-text="">
+                      Поездка очень понравилась! Усадьба Огинского, которого знают все, но о нем знают меньше. Быт
+                      белорусской усадьбы атмосфере. Три очень интересных костела, православный храм. Гид Юрий
+                      рассказывал
+                      интересно, видна любовь к родному краю, что всегда вдохновляет. Три очень интересных костела,
+                      православный храм. Гид Юрий рассказывал интересно, видна любовь к родному краю, что всегда
+                      вдохновляет. Три очень интересных костела, православный храм. Гид Юрий рассказывал интересно,
+                      видна
+                      любовь к родному краю, что всегда вдохновляет. Три очень интересных костела, православный храм.
+                      Гид
+                      Юрий рассказывал интересно, видна любовь к родному краю, что всегда вдохновляет.
+                    </p>
+
+                  </div>
+
+                  <button type="button" class="reviews__toggle reviews__toggle--hidden"
+                    data-reviews-toggle="">далее...</button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="reviews__slide">
+            <div class="reviews__slide-padding">
+              <article class="reviews__card">
+                <img src="/src/assets/images/person.png" class="reviews__avatar" alt="">
+                <div class="reviews__body">
+                  <div class="reviews__card-header">
+                    <div class="reviews__meta">
+                      <p class="reviews__name">Марина, <span class="reviews__city">Санкт-Петербург</span></p>
+                      <span class="reviews__date">11-Июня-2026</span>
+                    </div>
+                    <div class="reviews__stars" role="img" aria-label="Оценка 4 из 5">
+                      <img src="/src/assets/icons/star-filled.svg" alt="">
+                      <img src="/src/assets/icons/star-filled.svg" alt="">
+                      <img src="/src/assets/icons/star-filled.svg" alt="">
+                      <img src="/src/assets/icons/star-filled.svg" alt="">
+                      <img src="/src/assets/icons/star-outline.svg" alt="">
+                    </div>
+
+                  </div>
+                  <div class="reviews__textwrap">
+                    <p class="reviews__text" data-reviews-text="">
+                      Поездка очень понравилась! Усадьба Огинского, которого знают все, но о нем знают меньше. Быт
+                      белорусской усадьбе атмосфере. Три очень интересных костела, православный храм. Гид Юрий
+                      рассказывал интересно, видна любовь к родному краю, что всегда вдохновляет. Три очень интересных
+                      костела, православный храм.
+                    </p>
+                  </div>
+                  <button type="button" class="reviews__toggle reviews__toggle--hidden"
+                    data-reviews-toggle="">далее...</button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="reviews__slide">
+            <div class="reviews__slide-padding">
+              <article class="reviews__card">
+                <img src="/src/assets/images/person.png" class="reviews__avatar" alt="">
+                <div class="reviews__body">
+                  <div class="reviews__card-header">
+                    <div class="reviews__meta">
+                      <p class="reviews__name">Марина, <span class="reviews__city">Санкт-Петербург</span></p>
+                      <span class="reviews__date">11-Июня-2026</span>
+                    </div>
+                    <div class="reviews__stars" role="img" aria-label="Оценка 4 из 5">
+                      <img src="/src/assets/icons/star-filled.svg" alt="">
+                      <img src="/src/assets/icons/star-filled.svg" alt="">
+                      <img src="/src/assets/icons/star-filled.svg" alt="">
+                      <img src="/src/assets/icons/star-filled.svg" alt="">
+                      <img src="/src/assets/icons/star-outline.svg" alt="">
+                    </div>
+
+                  </div>
+                  <div class="reviews__textwrap">
+                    <p class="reviews__text" data-reviews-text="">
+                      Поездка очень понравилась! Усадьба Огинского, которого знают все, но о нем знают меньше. Быт
+                      белорусской усадьбе атмосфере. Три очень интересных костела, православный храм. Гид Юрий
+                      рассказывал интересно, видна любовь к родному краю, что всегда вдохновляет. Три очень интересных
+                      костела, православный храм.
+                    </p>
+                  </div>
+                  <button type="button" class="reviews__toggle reviews__toggle--hidden"
+                    data-reviews-toggle="">далее...</button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="reviews__slide">
+            <div class="reviews__slide-padding">
+              <article class="reviews__card">
+                <img src="/src/assets/images/person.png" class="reviews__avatar" alt="" />
+                <div class="reviews__body">
+                  <div class="reviews__card-header">
+                    <div class="reviews__meta">
+                      <p class="reviews__name">Марина, <span class="reviews__city">Санкт-Петербург</span></p>
+                      <span class="reviews__date">11-Июня-2026</span>
+                    </div>
+                    <div class="reviews__stars" role="img" aria-label="Оценка 4 из 5">
+                      <img src="/src/assets/icons/star-filled.svg" alt="" />
+                      <img src="/src/assets/icons/star-filled.svg" alt="" />
+                      <img src="/src/assets/icons/star-filled.svg" alt="" />
+                      <img src="/src/assets/icons/star-filled.svg" alt="" />
+                      <img src="/src/assets/icons/star-outline.svg" alt="" />
+                    </div>
+                  </div>
+                  <div class="reviews__textwrap">
+                    <p class="reviews__text" data-reviews-text>
+                      Поездка очень понравилась! Усадьба Огинского, которого знают все, но о нем знают меньше. Быт
+                      белорусской усадьбе атмосфере. Три очень интересных костела, православный храм. Гид Юрий
+                      рассказывал интересно, видна любовь к родному краю, что всегда вдохновляет.
+                    </p>
+                  </div>
+                  <button type="button" class="reviews__toggle reviews__toggle--hidden"
+                    data-reviews-toggle>далее...</button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="reviews__slide">
+            <div class="reviews__slide-padding">
+              <article class="reviews__card">
+                <img src="/src/assets/images/person.png" class="reviews__avatar" alt="" />
+                <div class="reviews__body">
+                  <div class="reviews__card-header">
+                    <div class="reviews__meta">
+                      <p class="reviews__name">Марина, <span class="reviews__city">Санкт-Петербург</span></p>
+                      <span class="reviews__date">11-Июня-2026</span>
+                    </div>
+                    <div class="reviews__stars" role="img" aria-label="Оценка 4 из 5">
+                      <img src="/src/assets/icons/star-filled.svg" alt="" />
+                      <img src="/src/assets/icons/star-filled.svg" alt="" />
+                      <img src="/src/assets/icons/star-filled.svg" alt="" />
+                      <img src="/src/assets/icons/star-filled.svg" alt="" />
+                      <img src="/src/assets/icons/star-outline.svg" alt="" />
+                    </div>
+                  </div>
+                  <div class="reviews__textwrap">
+                    <p class="reviews__text" data-reviews-text>
+                      Поездка очень понравилась! Усадьба Огинского, которого знают все, но о нем знают меньше. Быт
+                      белорусской усадьбе атмосфере. Три очень интересных костела, православный храм.
+                    </p>
+                  </div>
+                  <button type="button" class="reviews__toggle reviews__toggle--hidden"
+                    data-reviews-toggle>далее...</button>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews__nav">
+        <button type="button" class="reviews__nav-button reviews__nav-button--prev" data-reviews-prev
+          aria-label="Предыдущие отзывы">
+          <img src="/src/assets/icons/chevron-down-white.svg" alt="" />
+        </button>
+        <button type="button" class="reviews__nav-button reviews__nav-button--next" data-reviews-next
+          aria-label="Следующие отзывы">
+          <img src="/src/assets/icons/chevron-down-white.svg" alt="" />
+        </button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <a href="/" class="footer__logo">
+          <img src="/src/assets/icons/footer_logo.svg" alt="Ekskursii.by" />
+        </a>
+
+        <div class="footer__columns">
+          <div class="footer__contacts">
+            <h3 class="footer__heading">КОНТАКТЫ</h3>
+            <a href="tel:+375173944913" class="footer__phone">
+              <img src="/src/assets/icons/phone.svg" alt="" />
+              +375 17 394-49-13
+            </a>
+            <a href="tel:+375297566665" class="footer__phone">
+              <img src="/src/assets/icons/phone.svg" alt="" />
+              +375 29 756-66-65
+            </a>
+            <div class="footer__social">
+              <a href="#" class="footer__social-link" aria-label="WhatsApp">
+                <img src="/src/assets/icons/whatsapp.svg" alt="" />
+              </a>
+              <a href="#" class="footer__social-link" aria-label="Telegram">
+                <img src="/src/assets/icons/telegram.svg" alt="" />
+              </a>
+              <a href="#" class="footer__social-link" aria-label="Viber">
+                <img src="/src/assets/icons/viber.svg" alt="" />
+              </a>
+            </div>
+          </div>
+
+          <div class="footer__legal">
+            <p class="footer__legal-title">
+              © Частное научно-производственное унитарное предприятие<br />
+              "Автоматизированные технологии туризма"
+            </p>
+            <p class="footer__legal-text">
+              Свидетельство о регистрации №1808 от 9.08.2007 выдано Минским горисполкомом. УНП: 190855081
+              Сертификат соответствия туристических услуг СТБ № BY/112 04.03. 071.01 00099 выдан Национальным
+              агентством по туризму РБ, действителен до 22.10.2029 г.
+            </p>
+          </div>
+        </div>
+
+        <hr class="footer__divider" />
+
+        <p class="footer__copyright">
+          © 2007–2026 Частное научно-производственное унитарное предприятие "Автоматизированные технологии
+          туризма"
+        </p>
+      </div>
+    </footer>
+  </main>
+
+  <div id="app"></div>
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,323 @@
+@use '../base/variables' as *;
+
+.search-form {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 24px;
+  background: $color-white;
+  border-radius: 3px;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-bottom: 0;
+  width: 100%;
+
+  &__group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 24px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: $color-navy;
+  }
+
+  &__input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 35px;
+    width: 262px;
+    gap: 8px;
+    background: $color-white;
+    border: 1px solid $color-gray-silver;
+    border-radius: 3px;
+    padding: 0 12px;
+
+    img {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      color: $color-navy;
+
+      &::placeholder {
+        color: $color-gray-light;
+      }
+    }
+  }
+
+  &__calendar-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    padding: 0;
+    line-height: 0;
+    cursor: pointer;
+  }
+
+  &__number {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 35px;
+    width: 200px;
+    gap: 8px;
+    background: $color-white;
+    border: 1px solid $color-gray-silver;
+    border-radius: 3px;
+    padding: 0 12px;
+
+    &-input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      color: $color-navy;
+      -moz-appearance: textfield;
+      appearance: textfield;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+
+    &-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: none;
+      border: none;
+      padding: 0;
+      line-height: 0;
+      cursor: pointer;
+    }
+
+    &-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      pointer-events: none;
+    }
+
+    &-list {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      z-index: 30;
+      max-height: 220px;
+      overflow-y: auto;
+      margin: 0;
+      padding: 4px;
+      list-style: none;
+      background: $color-white;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    &-option {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 8px 12px;
+      background: none;
+      border: none;
+      border-radius: 4px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      color: $color-navy;
+      cursor: pointer;
+
+      &:hover {
+        background: rgba($color-amber, 0.15);
+      }
+
+      &--selected {
+        background: $color-amber;
+        color: $color-white;
+      }
+    }
+  }
+
+  &__calendar {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    z-index: 30;
+    width: 280px;
+    background: $color-white;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+    padding: 16px;
+
+    &-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    &-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+
+      img {
+        width: 10px;
+        height: 10px;
+      }
+
+      &--prev img {
+        transform: rotate(90deg);
+      }
+
+      &--next img {
+        transform: rotate(-90deg);
+      }
+    }
+
+    &-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: $color-navy;
+    }
+
+    &-weekdays,
+    &-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+
+    &-weekdays {
+      margin-bottom: 8px;
+
+      span {
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        color: $color-gray-medium;
+      }
+    }
+
+    &-days {
+      gap: 4px;
+    }
+
+    &-day {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 4px;
+      background: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      color: $color-navy;
+      cursor: pointer;
+
+      &:hover {
+        background: rgba($color-amber, 0.15);
+      }
+
+      &--selected {
+        background: $color-amber;
+        color: $color-white;
+      }
+
+      &--empty {
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      &--disabled {
+        color: $color-gray-light;
+        cursor: not-allowed;
+
+        &:hover {
+          background: none;
+        }
+      }
+    }
+  }
+
+  &__message {
+    flex: 1 1 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: $color-blue;
+
+    &--error {
+      color: #c0392b;
+    }
+  }
+
+  &__submit {
+    height: 35px;
+    width: 200px;
+    background: $color-blue;
+    border: none;
+    border-radius: 3px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: $color-white;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 20px;
+
+    &__group {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 16px;
+    }
+
+    &__input,
+    &__number,
+    &__submit {
+      width: 100%;
+    }
+
+    &__calendar {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+}

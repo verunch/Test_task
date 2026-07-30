@@ -1,0 +1,29 @@
+// ==========================================================================
+// DESIGN SYSTEM TOKENS (Selection Colors)
+// ==========================================================================
+
+// Base Colors
+$color-white:       #ffffff; // 100%
+$color-black:       #000000; // 100%
+
+// Brand & Accent Colors
+$color-amber:       #f2b124; // 100% (Основной золотой/желтый)
+$color-amber-light: #f6d181; // 100% (Светло-золотой)
+$color-blue:        #4d799d; // 100% (Приглушенный синий)
+$color-navy:        #233849; // 100% (Темно-синий)
+
+// Grayscale / Muted Colors
+$color-gray-dark:   #727272; // 100%
+$color-gray-medium: #787878; // 100%
+$color-gray-light:  #b9b9b9; // 100%
+$color-gray-silver: #d9d9d9; // 100%
+
+// Alpha / Transparent Colors (White with Opacity)
+$color-white-70:    rgba(#ffffff, 0.70); // FFFFFF 70%
+$color-white-30:    rgba(#ffffff, 0.30); // FFFFFF 30%
+$color-white-01:    rgba(#ffffff, 0.01); // FFFFFF 1%
+
+// Gradients / Complex Fills (Заглушки для Linear Fills)
+// Примечание: В Figma они указаны как "Linear", точные точки нужно смотреть внутри слоя.
+$gradient-linear-1: linear-gradient(180deg, #ffffff 0%, #000000 100%); // 100%
+$gradient-linear-2: linear-gradient(180deg, #ffffff 0%, #727272 100%); // 100%

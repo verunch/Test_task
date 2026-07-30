@@ -1,0 +1,31 @@
+@use "../base/variables" as *;
+
+.tours {
+  display: flex;
+  flex-direction: column;
+  max-width: 1280px;
+  margin: 0 auto;
+  gap: 30px;
+  width: 88.88%;
+  scroll-margin-top: 80px;
+
+  &__title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: normal;
+    color: $color-navy;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    &__title {
+      font-size: 22px;
+    }
+  }
+
+  @media (max-width: 390px) {
+    width: 100%;
+    padding: 0 16px;
+  }
+}
